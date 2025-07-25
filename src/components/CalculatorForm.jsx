@@ -5,7 +5,7 @@ export default function CalculatorForm({ onSubmit }) {
     // @ stats
     const [cons, setCons] = useState("");
     const [dist, setDist] = useState("");
-    const [price, setPrice] = useState("");
+    const [price, setPrice] = useState("17.50");
 
     // @ functions
     const handleSubmit = (e) => {
