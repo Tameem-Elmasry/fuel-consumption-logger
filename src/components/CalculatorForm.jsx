@@ -33,7 +33,9 @@ export default function CalculatorForm({ onSubmit }) {
     // @ return
     return (
         <form onSubmit={handleSubmit}>
+            <label htmlFor="d">Distance (km):</label>
             <input
+                id="d"
                 type="number"
                 value={dist}
                 onChange={(e) => {
@@ -44,7 +46,9 @@ export default function CalculatorForm({ onSubmit }) {
                 placeholder="Distance (km)"
                 required
             />
+            <label htmlFor="c">Consumption (L/km):</label>
             <input
+                id="c"
                 type="number"
                 value={cons}
                 onChange={(e) => {
@@ -55,7 +59,9 @@ export default function CalculatorForm({ onSubmit }) {
                 placeholder="Consumption (L/km)"
                 required
             />
+            <label htmlFor="p">Price (EGP):</label>
             <input
+                id="p"
                 type="number"
                 value={price}
                 onChange={(e) => {
