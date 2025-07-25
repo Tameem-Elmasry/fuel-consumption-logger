@@ -52,7 +52,7 @@ export default function CalculatorForm({ onSubmit }) {
                     setMessage("");
                 }}
                 step="0.1"
-                placeholder="Consumption (L/100km)"
+                placeholder="Consumption (L/km)"
                 required
             />
             <input
