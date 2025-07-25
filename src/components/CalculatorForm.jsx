@@ -6,7 +6,7 @@ export default function CalculatorForm({ onSubmit }) {
     const [cons, setCons] = useState("");
     const [dist, setDist] = useState("");
     const [message, setMessage] = useState();
-    const [price, setPrice] = useState("17.50");
+    const [price, setPrice] = useState("17.25");
 
     // @ functions
     const handleSubmit = (e) => {
@@ -15,7 +15,7 @@ export default function CalculatorForm({ onSubmit }) {
             d = parseFloat(dist),
             p = parseFloat(price);
         if (isNaN(c) || isNaN(d) || isNaN(p)) return alert("Invalid input");
-        const liters = +((c / 100) * d).toFixed(2);
+        const liters = +(d / c).toFixed(2);
         const cost = +(liters * p).toFixed(2);
         setMessage(`the trip cost is ${cost} for ${liters} liters of fuel.`);
         onSubmit({
