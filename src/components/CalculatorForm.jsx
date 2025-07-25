@@ -5,6 +5,7 @@ export default function CalculatorForm({ onSubmit }) {
     // @ stats
     const [cons, setCons] = useState("");
     const [dist, setDist] = useState("");
+    const [message, setMessage] = useState();
     const [price, setPrice] = useState("17.50");
 
     // @ functions
@@ -16,6 +17,7 @@ export default function CalculatorForm({ onSubmit }) {
         if (isNaN(c) || isNaN(d) || isNaN(p)) return alert("Invalid input");
         const liters = +((c / 100) * d).toFixed(2);
         const cost = +(liters * p).toFixed(2);
+        setMessage(`the trip cost is ${cost} for ${liters} liters of fuel.`);
         onSubmit({
             rawTimestamp: new Date().getTime(),
             Consumption: c,
@@ -34,15 +36,21 @@ export default function CalculatorForm({ onSubmit }) {
             <input
                 type="number"
                 value={cons}
-                onChange={(e) => setCons(e.target.value)}
+                onChange={(e) => {
+                    setCons(e.target.value);
+                    setMessage("");
+                }}
                 step="0.1"
-                placeholder="L/100 km"
+                placeholder="Consumption (L/100km)"
                 required
             />
             <input
                 type="number"
                 value={dist}
-                onChange={(e) => setDist(e.target.value)}
+                onChange={(e) => {
+                    setDist(e.target.value);
+                    setMessage("");
+                }}
                 step="1"
                 placeholder="Distance (km)"
                 required
@@ -50,12 +58,16 @@ export default function CalculatorForm({ onSubmit }) {
             <input
                 type="number"
                 value={price}
-                onChange={(e) => setPrice(e.target.value)}
+                onChange={(e) => {
+                    setPrice(e.target.value);
+                    setMessage("");
+                }}
                 step="0.01"
                 placeholder="Price per L"
                 required
             />
             <button type="submit">Add & Calculate</button>
+            {message && <p>{message}</p>}
         </form>
     );
 }
