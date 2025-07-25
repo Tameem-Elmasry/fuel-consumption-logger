@@ -35,17 +35,6 @@ export default function CalculatorForm({ onSubmit }) {
         <form onSubmit={handleSubmit}>
             <input
                 type="number"
-                value={cons}
-                onChange={(e) => {
-                    setCons(e.target.value);
-                    setMessage("");
-                }}
-                step="0.1"
-                placeholder="Consumption (L/100km)"
-                required
-            />
-            <input
-                type="number"
                 value={dist}
                 onChange={(e) => {
                     setDist(e.target.value);
@@ -53,6 +42,17 @@ export default function CalculatorForm({ onSubmit }) {
                 }}
                 step="1"
                 placeholder="Distance (km)"
+                required
+            />
+            <input
+                type="number"
+                value={cons}
+                onChange={(e) => {
+                    setCons(e.target.value);
+                    setMessage("");
+                }}
+                step="0.1"
+                placeholder="Consumption (L/100km)"
                 required
             />
             <input
