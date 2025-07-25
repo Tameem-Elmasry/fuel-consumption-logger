@@ -26,7 +26,6 @@ export default function CalculatorForm({ onSubmit }) {
         });
         setCons("");
         setDist("");
-        setPrice("");
     };
 
     // @ return
